@@ -1,0 +1,57 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AdvanceLogReader.MainWindow"
+        FontFamily="微软雅黑,Microsoft YaHei,Simsun,苹方-简,宋体-简"
+        Title="高级日志查看工具">
+  <Grid Margin="0,0,0,0">
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="20,20,20,0" Background="AliceBlue" Height="50">
+      <ComboBox HorizontalContentAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0" Width="100" Height="30" x:Name="Combx_Level" SelectedIndex="0">
+        <ComboBoxItem>所有级别</ComboBoxItem>
+        <CheckBox IsChecked="true">INFO</CheckBox>
+        <CheckBox IsChecked="true">WARN</CheckBox>
+        <CheckBox IsChecked="true">ERROR</CheckBox>
+        <CheckBox IsChecked="true">DEBUG</CheckBox>
+      </ComboBox>
+      <ComboBox HorizontalContentAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="100" Height="30" x:Name="Combx_Module" SelectedIndex="0" >
+        <ComboBoxItem>所有模块</ComboBoxItem>
+      </ComboBox>
+      <ComboBox HorizontalContentAlignment="Left" VerticalAlignment="Center" Margin="260,0,0,0" Width="100" Height="30" x:Name="Combx_Datetime" SelectedIndex="0">
+        <ComboBoxItem>所有日期</ComboBoxItem>
+        <ComboBoxItem>当天</ComboBoxItem>
+        <ComboBoxItem>昨天</ComboBoxItem>
+        <ComboBoxItem>近三天</ComboBoxItem>
+        <ComboBoxItem>一周</ComboBoxItem>
+        <ComboBoxItem>自定义</ComboBoxItem>
+      </ComboBox>
+      <Button x:Name="Btn_Submit" Margin="375,0,0,0" Height="30" Width="70" Content="查询" />
+      <Button x:Name="Btn_StartDt" Margin="460,0,0,0" Width="120" Height="30" Content="起始时间" IsEnabled="False"/>
+      <Label Margin="590,0,0,0" FontSize="14" Content="→"  FontWeight="Bold" VerticalAlignment="Center" />
+      <Button x:Name="Btn_EndDt" Margin="620,0,0,0" Width="120" Height="30" Content="结束时间" IsEnabled="False"/>
+    </Grid>
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,80,20,200">
+      <DataGrid HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Margin="0,0,0,0" CanUserReorderColumns="True" CanUserResizeColumns="True" CanUserSortColumns="True" IsReadOnly="True" x:Name="DataGrid">
+        <DataGrid.Columns>
+          <DataGridTextColumn Header="日志级别" Binding="{Binding LogType}" />
+          <DataGridTextColumn Header="模块名称" Binding="{Binding ModuleName}" />
+          <DataGridTextColumn Header="条目日期" Binding="{Binding DateTime}" />
+          <DataGridTextColumn Header="触发函数" Binding="{Binding FuncName}" />
+          <DataGridTextColumn Header="日志概要" Binding="{Binding Desc}" />
+        </DataGrid.Columns>
+      </DataGrid>
+    </Grid>
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="20,0,20,50" Height="140">
+      <TextBox x:Name="Tbx_Desc" IsReadOnly="True"  ScrollViewer.VerticalScrollBarVisibility="Auto"  ScrollViewer.HorizontalScrollBarVisibility="Auto" FontFamily="微软雅黑,Microsoft YaHei,Simsun,苹方-简,宋体-简" />
+    </Grid>
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="20,0,20,10" Height="30" Background="AliceBlue">
+      <Label x:Name="Label_Status" VerticalContentAlignment="Center" Content="条目数：" HorizontalAlignment="Left" Margin="10,0,0,0" />
+      <Label x:Name="Label_Clear" VerticalContentAlignment="Center" Content="清除本页" Foreground="Blue" FontWeight="Bold" HorizontalAlignment="Right" Margin="0,0,70,0" />
+      <Label x:Name="Label_Export" VerticalContentAlignment="Center" Content="导出此条" Foreground="Blue" FontWeight="Bold" HorizontalAlignment="Right" Margin="0,0,10,0" />
+      <Label x:Name="Label_FindText" VerticalContentAlignment="Center" Content="文本检索" Foreground="Blue" FontWeight="Bold" HorizontalAlignment="Right" Margin="0,0,130,0" />
+      <Label x:Name="Label_RiseLimit" VerticalContentAlignment="Center" Content="提高条目限制" Foreground="Blue" FontWeight="Bold" HorizontalAlignment="Right" Margin="0,0,190,0" />
+      <Label x:Name="Label_Limit" VerticalContentAlignment="Center" Content="单模块条目限制：1000" Foreground="Blue" HorizontalAlignment="Left" Margin="140,0,0,0" Width="150"/>
+    </Grid>
+  </Grid>
+</Window>

@@ -1,0 +1,14 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="350" d:DesignHeight="190"
+        x:Class="AdvanceLogReader.Popups.TimePickerPopup"
+        Title="时间日期选择" CanResize="False" 
+        MaxWidth="350" MinWidth="350" MaxHeight="190" MinHeight="190" ShowInTaskbar="False" ShowActivated="True">
+  <Grid>
+    <DatePicker Header="选择日期" VerticalAlignment="Top"  HorizontalAlignment="Stretch" Margin="25,20,25,0" x:Name="DatePicker"/>
+    <TimePicker Header="选择时间" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="25,80,25,0" x:Name="TimePicker"/>
+    <Button Content="确认" Width="100" Height="28"  VerticalAlignment="Bottom" HorizontalAlignment="Center"  Margin="0,0,0,20" x:Name="Btn_Commit"/>
+  </Grid>
+</Window>
